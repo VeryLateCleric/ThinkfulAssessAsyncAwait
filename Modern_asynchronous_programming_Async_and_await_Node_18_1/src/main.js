@@ -8,31 +8,26 @@ async function getFortune(question) {
   } catch (err) {
     console.log(`There was an error: ${err}`)
   }
-  // tell(question)
-  //   .then((response) => {
-  //     console.log(`Your question was: ${question}`);
-  //     console.log(`Your fortune is: ${response}`);
-  //   })
-  //   .catch((err) => {
-  //     console.log(`There was an error: ${err}`);
-  //   });
 }
 
 async function fullSession(question) {
-  try{
-
+  try {
+    console.log(await welcome());
+    await getFortune(question);
+    console.log(await goodbye());
   } catch (err) {
-
+    console.log(`There was an error: ${err}`);
   }
-
-  welcome()
-    .then(console.log)
-    .then(() => getFortune(question))
-    .then(() => goodbye())
-    .then(console.log)
-    .catch((err) => {
-      console.log(`There was an error: ${err}`);
-    });
 }
+
+
+  // welcome()
+  //   .then(console.log)
+  //   .then(() => getFortune(question))
+  //   .then(() => goodbye())
+  //   .then(console.log)
+  //   .catch((err) => {
+  //     console.log(`There was an error: ${err}`);
+  //   });
 
 module.exports = { getFortune, fullSession };
